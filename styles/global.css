@@ -1,0 +1,28 @@
+:root {
+  --color-primary: #81c6e8;
+  --color-white: white;
+}
+
+main {
+  min-height: 100vh;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 80px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.title {
+  margin-top: 2rem;
+  text-align: center;
+}
