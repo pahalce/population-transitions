@@ -25,13 +25,28 @@ const PrefSection = () => {
   };
 
   if (isLoading) {
-    <span>Loading...</span>;
+    return (
+      <>
+        <SectionTitle title="都道府県を選択" />
+        <span>Loading...</span>
+      </>
+    );
   }
   if (isError && error instanceof Error) {
-    <span>Error:{error.message}</span>;
+    return (
+      <>
+        <SectionTitle title="都道府県を選択" />
+        <span>Error:{error.message}</span>
+      </>
+    );
   }
-  if (!data?.length) {
-    return <span>都道府県が見つかりませんでした</span>;
+  if (!data || data.length === 0) {
+    return (
+      <>
+        <SectionTitle title="都道府県を選択" />
+        <span>都道府県が見つかりませんでした</span>
+      </>
+    );
   }
 
   return (
