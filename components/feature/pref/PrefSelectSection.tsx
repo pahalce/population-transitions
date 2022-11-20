@@ -1,29 +1,8 @@
-import { getAllPrefs as fetchAllPrefs } from '../../../lib/axios';
-import { useQuery } from '@tanstack/react-query';
 import SectionTitle from '../../common/SectionTitle';
 import PrefSelectOptions from './PrefSelectOptions';
-import { useState } from 'react';
-import { Prefecture } from '../../../types';
+import usePrefs from '../../../hooks/usePrefs';
 const PrefSection = () => {
-  const [selectedPrefs, setSelectedPrefs] = useState<Prefecture[]>([]);
-  const { isLoading, isError, data, error } = useQuery({
-    queryKey: ['prefectures'],
-    queryFn: fetchAllPrefs,
-  });
-
-  const handleChangeSelectedPrefs = (pref: Prefecture) => {
-    const foundPref = selectedPrefs.find((selectedPref) => selectedPref.prefCode === pref.prefCode);
-    // add to selected pref list
-    if (!foundPref) {
-      setSelectedPrefs((selectedPrefs) => [...selectedPrefs, pref]);
-      return;
-    }
-    // remove from selected list
-    setSelectedPrefs(
-      selectedPrefs.filter((selectedPref) => selectedPref.prefCode !== pref.prefCode),
-    );
-  };
-
+  const { isLoading, isError, error, prefs, selectedPrefs, toggleSelectedPrefs } = usePrefs();
   if (isLoading) {
     return (
       <>
@@ -40,7 +19,7 @@ const PrefSection = () => {
       </>
     );
   }
-  if (!data || data.length === 0) {
+  if (!prefs || prefs.length === 0) {
     return (
       <>
         <SectionTitle title="都道府県を選択" />
@@ -53,9 +32,9 @@ const PrefSection = () => {
     <>
       <SectionTitle title="都道府県を選択" />
       <PrefSelectOptions
-        prefs={data}
+        prefs={prefs}
         selectedPrefs={selectedPrefs}
-        onChangeSelectedPrefs={handleChangeSelectedPrefs}
+        onChangeSelectedPrefs={toggleSelectedPrefs}
       />
     </>
   );
