@@ -15,17 +15,22 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, T
 
 export const options: ChartOptions<'line'> = {
   plugins: {
-    title: {
-      display: false,
-    },
+    legend: { align: 'start', fullSize: false },
   },
   maintainAspectRatio: false,
   responsive: false,
+  scales: {
+    x: {
+      title: { display: true, text: '年度' },
+    },
+    y: {
+      title: { display: true, text: '総人口' },
+    },
+  },
 };
 
 export const createData = (data: DataForPopulationGraph[]) => {
   const labels = data[0].valueSeries.map((data) => data.year);
-  const color = data.map((p) => Math.floor((p.pref.prefCode / 47) * 16777216).toString(16));
   return {
     labels: labels,
     datasets: data.map((data) => {
