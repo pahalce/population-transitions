@@ -39,6 +39,7 @@ main {
   color: var(--color-primary);
   margin: 8px 0;
   text-align: center;
+  margin-top: clamp(24px, 3vw, 80px);
 }
 
 .pref-select-container {

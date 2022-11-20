@@ -16,8 +16,7 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, T
 export const options: ChartOptions<'line'> = {
   plugins: {
     title: {
-      display: true,
-      text: 'Population',
+      display: false,
     },
   },
   maintainAspectRatio: false,
