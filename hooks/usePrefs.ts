@@ -1,10 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
-import { fetchAllPrefs } from '../lib/axios';
-import { Prefecture } from '../types';
+import { fetchAllPrefs, fetchPopulationByPrefCode } from '../lib/axios';
+import { DataForPopulationGraph, Prefecture } from '../types';
 
 const usePrefs = () => {
   const [selectedPrefs, setSelectedPrefs] = useState<Prefecture[]>([]);
+  const [populationData, setPopulationData] = useState<DataForPopulationGraph[]>([]);
   const {
     isLoading,
     isError,
@@ -15,11 +16,14 @@ const usePrefs = () => {
     queryFn: fetchAllPrefs,
   });
 
-  const toggleSelectedPrefs = (pref: Prefecture) => {
+  const toggleSelectedPrefs = async (pref: Prefecture) => {
     const foundPref = selectedPrefs.find((selectedPref) => selectedPref.prefCode === pref.prefCode);
     // add to selected pref list
     if (!foundPref) {
       setSelectedPrefs((selectedPrefs) => [...selectedPrefs, pref]);
+      const popData = await fetchPopulationByPrefCode(pref.prefCode);
+
+      setPopulationData([...populationData, { pref, data: popData }]);
       return;
     }
     // remove from selected list
@@ -27,8 +31,7 @@ const usePrefs = () => {
       selectedPrefs.filter((selectedPref) => selectedPref.prefCode !== pref.prefCode),
     );
   };
-
-  return { isLoading, isError, prefs, selectedPrefs, error, toggleSelectedPrefs };
+  return { isLoading, isError, prefs, selectedPrefs, error, toggleSelectedPrefs, populationData };
 };
 
 export default usePrefs;
