@@ -6,7 +6,7 @@ import PopulationGraph from './PopulationGraph';
 const GraphSection = () => {
   const [populationData, setPopulationData] = useRecoilState(DataForPopulationGraphState);
   return (
-    <div>
+    <div className="graph-section-container">
       <SectionTitle title="グラフ" />
       <PopulationGraph data={populationData} />
     </div>
