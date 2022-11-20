@@ -9,9 +9,9 @@ const PopulationGraph = ({ data }: PopulationGraphProps) => {
     return <span>都道府県を選んでください</span>;
   }
   return (
-    <>
-      <Line options={options} data={createData(data)} height="300px" />
-    </>
+    <div className="graph">
+      <Line options={options} data={createData(data)} width={860} height={480} />
+    </div>
   );
 };
 
