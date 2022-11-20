@@ -1,7 +1,7 @@
 import SectionTitle from '../../common/SectionTitle';
 import PrefSelectOptions from './PrefSelectOptions';
 import usePrefs from '../../../hooks/usePrefs';
-const PrefSection = () => {
+const PrefSelectSection = () => {
   const { isLoading, isError, error, prefs, selectedPrefs, toggleSelectedPrefs } = usePrefs();
   if (isLoading) {
     return (
@@ -40,4 +40,4 @@ const PrefSection = () => {
   );
 };
 
-export default PrefSection;
+export default PrefSelectSection;
