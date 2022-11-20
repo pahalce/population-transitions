@@ -20,6 +20,8 @@ export const options: ChartOptions<'line'> = {
       text: 'Population',
     },
   },
+  // maintainAspectRatio: true,
+  responsive: true,
 };
 
 export const createData = (data: DataForPopulationGraph[]) => {

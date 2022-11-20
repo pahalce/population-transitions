@@ -10,7 +10,7 @@ const PopulationGraph = ({ data }: PopulationGraphProps) => {
   }
   return (
     <>
-      <Line options={options} data={createData(data)} />
+      <Line options={options} data={createData(data)} height="300px" />
     </>
   );
 };
