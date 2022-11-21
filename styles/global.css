@@ -78,8 +78,10 @@ main {
   cursor: pointer;
 }
 
-.pref-select-item > input:hover + label {
-  color: var(--color-primary);
+@media (hover: hover) {
+  .pref-select-item > input:hover + label {
+    color: var(--color-primary);
+  }
 }
 
 .graph {
