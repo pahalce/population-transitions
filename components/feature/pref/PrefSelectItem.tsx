@@ -20,7 +20,7 @@ const PrefSelectItem = ({ pref, onChangeItem, isChecked }: PrefSelectItemProps) 
         onChange={handleOnChange}
         name={pref.prefName}
       />
-      <label htmlFor="id">{pref.prefName}</label>
+      <label htmlFor={pref.prefCode.toString()}>{pref.prefName}</label>
     </div>
   );
 };

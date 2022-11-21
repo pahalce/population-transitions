@@ -62,6 +62,15 @@ main {
   aspect-ratio: 1;
 }
 
+.pref-select-item > input,
+.pref-select-item > label {
+  cursor: pointer;
+}
+
+.pref-select-item > input:hover + label {
+  color: var(--color-primary);
+}
+
 .graph {
   overflow-x: auto;
 }
