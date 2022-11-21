@@ -7,7 +7,7 @@ const PrefSelectSection = () => {
     return (
       <>
         <SectionTitle title="都道府県を選択" />
-        <span>Loading...</span>
+        <span className="status status-message">Loading...</span>
       </>
     );
   }
@@ -15,7 +15,7 @@ const PrefSelectSection = () => {
     return (
       <>
         <SectionTitle title="都道府県を選択" />
-        <span>Error:{error.message}</span>
+        <span className="status status-error">Error:{error.message}</span>
       </>
     );
   }
@@ -23,7 +23,7 @@ const PrefSelectSection = () => {
     return (
       <>
         <SectionTitle title="都道府県を選択" />
-        <span>都道府県が見つかりませんでした</span>
+        <span className="status status-error">都道府県が見つかりませんでした</span>
       </>
     );
   }

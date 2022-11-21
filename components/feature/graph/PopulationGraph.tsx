@@ -6,7 +6,7 @@ type PopulationGraphProps = {
 };
 const PopulationGraph = ({ data }: PopulationGraphProps) => {
   if (data.length === 0) {
-    return <span>都道府県を選んでください</span>;
+    return <span className="status status-message">都道府県を選んでください</span>;
   }
   return (
     <div className="graph">

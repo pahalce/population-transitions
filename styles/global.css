@@ -1,6 +1,7 @@
 :root {
   --color-primary: #81c6e8;
   --color-white: white;
+  --color-red: red;
 }
 
 main {
@@ -39,6 +40,16 @@ main {
   margin: 8px 0;
   text-align: center;
   margin-top: clamp(24px, 3vw, 80px);
+}
+
+.status {
+  font-size: clamp(1rem, 2vw, 2rem);
+  display: flex;
+  justify-content: center;
+}
+
+.status-error {
+  color: var(--color-red);
 }
 
 .pref-select-container {
