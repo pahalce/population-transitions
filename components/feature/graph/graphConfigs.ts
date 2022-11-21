@@ -18,7 +18,7 @@ export const options: ChartOptions<'line'> = {
     legend: { align: 'start', fullSize: false },
   },
   maintainAspectRatio: false,
-  responsive: false,
+  responsive: true,
   scales: {
     x: {
       title: { display: true, text: '年度' },
